@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
+    "@testing-library/user-event": "^12.1.1",
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -16,8 +16,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,10 +35,48 @@
     ]
   },
   "devDependencies": {
-    "babel-jest": "^26.3.0",
+    "@babel/core": "^7.11.1",
+    "@babel/helper-call-delegate": "^7.10.4",
+    "@babel/plugin-syntax-jsx": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-jest": "^24.9.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
     "enzyme-to-json": "^3.5.0",
-    "jest": "^26.4.0"
+    "jest": "24.9.0",
+    "parcel-bundler": "^1.12.4"
+  },
+  "alias": {
+    "#root": "./src"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>src/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "less",
+      "sass",
+      "svg"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.svg$": "<rootDir>/__mocks__/svgTransform.js",
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "^.+\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "moduleNameMapper": {
+      "^.+\\.svg$": "<rootDir>/__mocks__/svgTransform.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
   }
 }
