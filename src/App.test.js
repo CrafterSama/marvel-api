@@ -1,9 +1,11 @@
+import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import React from 'react';
-import { render } from '@testing-library/react';
+
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('matches snapshot', () => {
+  const wrapper = shallow(<App />);
+
+  expect(toJSON(wrapper)).toMatchSnapshot();
+})
