@@ -24,7 +24,7 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
-  > img {
+  & img {
     max-width: 75px;
   }
 `;

@@ -1,10 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import PrincipalLayout from './components/Layout/PrincipalLayout';
 import './App.css';
 
 function App() {
   return (
-    <PrincipalLayout />
+    <Router>
+      <PrincipalLayout />
+    </Router>
   );
 }
 
