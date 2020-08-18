@@ -6,13 +6,9 @@ const SearchInput = () => {
   const [search, setSearch] = useState([])
 
   const onChange = (e) => {
-
     let data = {...search}
-
     data[e.target.name] = e.target.value
-
     setSearch(data)
-
   }
 
   const onSubmit = (event) => {
