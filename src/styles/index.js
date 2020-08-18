@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
-export const Main = styled.div`
+// Layout Styles
+export const Layout = styled.div`
   color: #333;
   background-color: #f0f0f0;
 `;
+// /endLayout Styles
 
+// Header
 export const HeaderContainer = styled.nav`
   display: grid;
   grid-template-columns: auto 1fr auto auto;
@@ -54,7 +57,34 @@ export const StarImageBox = styled.div`
 export const StarImage = styled.div`
   background-color: #fff;
 `;
+// /endHeader
 
+// Home
+export const HomeContainer = styled.section`
+  margin: 0 auto;
+  padding: 50px 15px;
+  @media (min-width: 993px) {
+    max-width: 80%;
+  }
+`;
+
+// Main
+export const MainGrid = styled.div`
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+
+export const MainGridItem = styled.div`
+  -webkit-box-flex: 1;
+  flex: 1 0 25%;
+  margin: 5px;
+`;
+
+
+
+// Footer
 export const FooterContainer = styled.div`
   background-color: #fff;
   padding: 5px;
@@ -66,3 +96,4 @@ export const FooterContainer = styled.div`
     color: #ec1d24;
   }
 `;
+// /endFooter

@@ -1,16 +1,18 @@
 import React from 'react'
 import Header from '../Common/Header'
 import Footer from '../Common/Footer'
+import Home from '../Home'
 import {
-  Main
+  Layout
 } from '../../styles'
 
-const PrincipalLayout = () => {
+const PrincipalLayout = (props) => {
   return (
-    <Main>
+    <Layout>
       <Header />
+      <Home />
       <Footer />
-    </Main>
+    </Layout>
   )
 }
 
