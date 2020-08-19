@@ -1,5 +1,4 @@
 import axios from 'axios'
-import marvel from 'marvel-characters'
 import {
   BASE_URL,
   API_KEY,

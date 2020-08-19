@@ -1,4 +1,5 @@
 export const initialState = {
-  state: {},
-  favorites: {}
+    characters: '',
+    favorites: '',
+    loading: false
 }
