@@ -9,15 +9,20 @@ export const Layout = styled.div`
 
 // Header
 export const HeaderContainer = styled.nav`
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
   background-color: #fff;
-  box-shadow: 0 2px 4px #666;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 100%;
 `;
 
 export const LogoContainer = styled.div`
-  background-color: #fff;
-  padding: 15px 0;
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
 `;
 
 export const ImageContainer = styled.div`
@@ -27,23 +32,30 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
+  height: 32px;
   & img {
-    max-width: 75px;
+    max-width: 80px;
   }
 `;
 
 export const SearchInputContainer = styled.div`
-  background-color: #fff;
-  padding: 5px 10px;
-  > form {
-    display: flex;
-    align-content: center;
-    > input {
-      padding: 15px 30px;
-      font-size: 18px;
-      width: 100%;
-    }
-  }
+  flex: 1 1 auto;
+  padding: 8px 10px;
+`;
+
+export const StyledForm = styled.form`
+  display: flex;
+  width: 100%;
+  align-content: center;
+`;
+
+export const StyledInput = styled.input`
+  padding: 6px;
+  border: medium none;
+  width: 100%;
+  color: rgb(57, 62, 70);
+  background-color: rgb(255, 255, 255);
+  font-size: 18px;
 `;
 
 export const FavoriteContainer = styled.div`
@@ -79,9 +91,9 @@ export const MainGrid = styled.div`
 
 export const MainGridItem = styled.div`
   min-height: 350px;
-  width: 25%;
+  min-width: 200px;
   -webkit-box-flex: 1;
-  flex: 1 0 22%;
+  flex: 1 0 30%;
   margin: 10px;
   display: flex;
   justify-content: center;
