@@ -1,6 +1,5 @@
 import md5 from 'md5';
 
-
 // Related with the Demo App
 export const BASE_URL = process.env.REACT_APP_BASE_URL;
 

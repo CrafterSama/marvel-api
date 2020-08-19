@@ -78,8 +78,15 @@ export const MainGrid = styled.div`
 
 export const MainGridItem = styled.div`
   -webkit-box-flex: 1;
-  flex: 1 0 25%;
-  margin: 5px;
+  flex: 1 0 22%;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  > div {
+    background-color: #666;
+    width: 180px;
+    height: 260px;
+  }
 `;
 
 
