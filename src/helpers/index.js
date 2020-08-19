@@ -1,5 +1,13 @@
+import marvel from 'marvel-characters';
+
 export const getRandomId = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+export const getRandomName = () => {
+  const nameArray = marvel.characters;
+  const randomName = nameArray[Math.floor(Math.random() * nameArray.length)];
+  return randomName;
 }

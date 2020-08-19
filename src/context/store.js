@@ -1,3 +1,5 @@
 export const initialState = {
-  state: {}
+    characters: '',
+    favorites: '',
+    loading: false
 }

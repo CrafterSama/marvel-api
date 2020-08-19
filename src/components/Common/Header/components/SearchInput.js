@@ -1,22 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { SearchInputContainer } from '../../../../styles'
+import { setGlobalState } from '../../../../utils'
+import { useStateValue } from '../../../../context'
 
 const SearchInput = () => {
 
-  const [search, setSearch] = useState([])
+  const [search, setSearch] = useState()
+  const [, dispatch] = useStateValue();
 
   const onChange = (e) => {
-    let data = {...search}
-    data[e.target.name] = e.target.value
-    setSearch(data)
+    setSearch(e.target.value)
   }
 
   const onSubmit = (event) => {
     event.preventDefault()
-
-    //fetchData(search)
-
+    marvelData()
   }
+
+  const marvelData = () => {
+    setGlobalState(search, dispatch)
+  }
+
+  useEffect(() => {
+    marvelData()
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <SearchInputContainer>
