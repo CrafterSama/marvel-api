@@ -18,19 +18,17 @@ const useMarvelData = (searchParam) => {
   const getData = useGetData(params);
 
   useEffect(() => {
-    if (loading) {
-      const getMarvelData = async () => {
-        setLoading(true);
-        const newData = await getData();
-        dispatch({
-          type: SET_CHARACTERS,
-          characters: newData.data.results,
-        });
-        setData(newData.data.results);
-        setLoading(false);
-      };
-      getMarvelData();
-    }
+    const getMarvelData = async () => {
+      setLoading(true);
+      const newData = await getData();
+      dispatch({
+        type: SET_CHARACTERS,
+        characters: newData.data.results,
+      });
+      setData(newData.data.results);
+      setLoading(false);
+    };
+    getMarvelData();
   }, [params]);
 
   return [data, loading];
