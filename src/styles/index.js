@@ -82,14 +82,56 @@ export const MainGridItem = styled.div`
   margin: 10px;
   display: flex;
   justify-content: center;
-  > div {
-    background-color: #666;
-    width: 180px;
-    height: 260px;
-  }
 `;
 
 
+// CharacterCard
+export const Card = styled.div`
+  ${({ background }) => background && `
+    background-image: url(${background.path}.${background.extension});
+  `}
+  background-color: #ccc;
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 280px;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0 0 3px #333;
+`;
+
+export const Overlayer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    205deg,
+    rgba(33, 33, 33, 1) 1%,
+    rgba(33, 33, 33, 0) 30%,
+    rgba(33, 33, 33, 0) 65%,
+    rgba(33, 33, 33, 1) 99%
+  );
+  border-radius: 3px;
+`;
+
+export const CharacterInfo = styled.div`
+  top: 0;
+  position: relative;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CharacterName = styled.div`
+  display: flex;
+  align-items: flex-end;
+  > span {
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 1px 2px #333;
+  }
+`;
 
 // Footer
 export const FooterContainer = styled.div`

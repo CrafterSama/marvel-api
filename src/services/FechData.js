@@ -6,14 +6,14 @@ import {
   HASH,
   AUTH_HEADERS
  } from '../constants'
- import getRandomId from '../helpers'
+ import { getRandomId } from '../helpers'
 
 export const buildEndpoint = (params = false) => {
   if (params) {
     return `${BASE_URL}${params}&ts=${TIMESTAMP}&apikey=${API_KEY}&hash=${HASH}`;
   } else {
-    const randomId = getRandomId(1009500, 1009700)
-    return `${BASE_URL}characters/${randomId}&ts=${TIMESTAMP}&apikey=${API_KEY}&hash=${HASH}`;
+    const randomId = getRandomId(1009500, 1009600)
+    return `${BASE_URL}characters/${randomId}?ts=${TIMESTAMP}&apikey=${API_KEY}&hash=${HASH}`;
   }
 }
 

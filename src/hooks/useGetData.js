@@ -9,9 +9,11 @@ const useGetData = (param) => {
       const response = await getData(url);
       const data = await response.data;
 
-      return data;
-
-      // return data;
+      if(data.code === 200) {
+        return data;
+      } else {
+        return { ...data, data: { results: []} };
+      }
     } catch (error) {
       return error;
     }

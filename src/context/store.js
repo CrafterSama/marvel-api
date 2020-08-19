@@ -1,3 +1,4 @@
 export const initialState = {
-  state: {}
+  state: {},
+  favorites: {}
 }
