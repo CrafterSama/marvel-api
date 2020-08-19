@@ -1,7 +1,7 @@
 import md5 from 'md5';
 
 // Related with the Demo App
-export const BASE_URL = 'http://gateway.marvel.com/v1/public/';
+export const BASE_URL = 'https://gateway.marvel.com/v1/public/';
 
 export const API_KEY = '7c7184285d23bc0b84e736075db7b34e';
 
@@ -17,3 +17,21 @@ export const AUTH_HEADERS = {
 	  'content-type': 'application/json',
   }
 };
+
+export const PARAM_STARTS_WITH = 'characters?nameStartsWith=';
+
+
+export const CHARACTER_ARRAY = [
+	'Hulk',
+	'Spider-man',
+	'Thor',
+	'Captain America',
+	'Iron Man',
+	'Black Widow',
+	'Thanos',
+	'Hawkeye',
+	'Black Cat',
+	'Galactus',
+	'Captain Marvel',
+	'Doctor Strange',
+]

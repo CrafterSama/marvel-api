@@ -63,20 +63,23 @@ export const StarImage = styled.div`
 export const HomeContainer = styled.section`
   margin: 0 auto;
   padding: 50px 15px;
+  max-width: 80%;
   @media (min-width: 993px) {
-    max-width: 80%;
+    max-width: 50%;
   }
 `;
 
 // Main
 export const MainGrid = styled.div`
   display: flex;
-  -webkit-box-pack: justify;
+  flex-flow: row wrap;
+  -moz-box-pack: justify;
   justify-content: space-between;
-  flex-wrap: wrap;
 `;
 
 export const MainGridItem = styled.div`
+  min-height: 350px;
+  width: 25%;
   -webkit-box-flex: 1;
   flex: 1 0 22%;
   margin: 10px;
@@ -93,8 +96,8 @@ export const Card = styled.div`
   background-color: #ccc;
   background-position: center;
   background-size: cover;
-  width: 200px;
-  height: 280px;
+  width: 100%;
+  height: 100%;
   border-radius: 3px;
   position: relative;
   box-shadow: 0 0 3px #333;

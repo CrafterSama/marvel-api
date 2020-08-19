@@ -1,10 +1,12 @@
 import { buildEndpoint, getData } from '../services/FechData';
 
-const useGetData = (param) => {
+const useGetData = (params) => {
+
+  console.log(params);
 
   const fetchFunction = async () => {
     try {
-      const url = (param) ? buildEndpoint(param) : buildEndpoint();
+      const url = buildEndpoint(params);
 
       const response = await getData(url);
       const data = await response.data;

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import marvel from 'marvel-characters'
 import {
   BASE_URL,
   API_KEY,
@@ -6,16 +7,8 @@ import {
   HASH,
   AUTH_HEADERS
  } from '../constants'
- import { getRandomId } from '../helpers'
 
-export const buildEndpoint = (params = false) => {
-  if (params) {
-    return `${BASE_URL}${params}&ts=${TIMESTAMP}&apikey=${API_KEY}&hash=${HASH}`;
-  } else {
-    const randomId = getRandomId(1009500, 1009600)
-    return `${BASE_URL}characters/${randomId}?ts=${TIMESTAMP}&apikey=${API_KEY}&hash=${HASH}`;
-  }
-}
+export const buildEndpoint = params => `${BASE_URL}${params}&ts=${TIMESTAMP}&apikey=${API_KEY}&hash=${HASH}`;
 
 export const getData = async (endPoint) => {
   try {
