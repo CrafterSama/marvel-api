@@ -5,10 +5,12 @@ import Home from '../Home'
 import {
   Layout
 } from '../../styles'
+import { useStateValue } from '../../context'
 
 const PrincipalLayout = (props) => {
+  const [state] = useStateValue()
   return (
-    <Layout>
+    <Layout darkmode={state.darkMode}>
       <Header />
       <Home />
       <Footer />
