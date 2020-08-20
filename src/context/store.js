@@ -1,5 +1,5 @@
 export const initialState = {
-    characters: '',
-    favorites: '',
+    characters: [],
+    favorites: [],
     loading: false
 }
