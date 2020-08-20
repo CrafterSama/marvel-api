@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FavoriteContainer, StarImageBox, StarImage } from '../../../../styles'
+
 
 const Favorite = () => {
 
@@ -9,7 +11,7 @@ const Favorite = () => {
   return (
     <FavoriteContainer>
       <StarImageBox>
-        <StarImage active={isFavorite} />
+        <StarImage icon={faStar} active={isFavorite} />
       </StarImageBox>
     </FavoriteContainer>
   );

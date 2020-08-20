@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Layout Styles
 export const Layout = styled.div`
@@ -46,7 +47,7 @@ export const SearchInputContainer = styled.div`
 export const StyledForm = styled.form`
   display: flex;
   width: 100%;
-  align-content: center;
+  align-items: center;
 `;
 
 export const StyledInput = styled.input`
@@ -66,8 +67,11 @@ export const StarImageBox = styled.div`
   background-color: #fff;
 `;
 
-export const StarImage = styled.div`
-  background-color: #fff;
+export const StarImage = styled(FontAwesomeIcon)`
+  color: #666;
+  ${({ isFavorite }) => isFavorite && `
+    color: #333;
+  `}
 `;
 // /endHeader
 

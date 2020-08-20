@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { SearchInputContainer, StyledForm, StyledInput } from '../../../../styles'
 import { setGlobalState } from '../../../../utils'
 import { useStateValue } from '../../../../context'
@@ -30,7 +31,7 @@ const SearchInput = () => {
   return (
     <SearchInputContainer>
       <StyledForm onSubmit={onSubmit}>
-        <FontAwesomeIcon icon="search" />
+        <FontAwesomeIcon icon={faSearch} />
         <StyledInput name="search" type="text" onChange={onChange} />
       </StyledForm>
     </SearchInputContainer>
