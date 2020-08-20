@@ -1,19 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { FavoriteContainer, StarImageBox, StarImage } from '../../../../styles'
+import { NavbarImageContainer, ImageBox, IconImage } from '../../../../styles'
+import { useStateValue } from '../../../../context';
 
 
 const Favorite = () => {
 
   // eslint-disable-next-line
-  const [ isFavorite, setIsFavorite ] = useState(false)
+  const [state] = useStateValue()
 
   return (
-    <FavoriteContainer>
-      <StarImageBox>
-        <StarImage icon={faStar} active={isFavorite} />
-      </StarImageBox>
-    </FavoriteContainer>
+    <NavbarImageContainer>
+      <ImageBox darkmode={state.darkMode}>
+        <IconImage icon={faStar} />
+      </ImageBox>
+    </NavbarImageContainer>
   );
 }
 

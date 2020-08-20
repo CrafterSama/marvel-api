@@ -1,7 +1,7 @@
 import { buildEndpoint, getData } from '../services/FechData';
 import marvel from 'marvel-characters';
 import { PARAM_STARTS_WITH } from '../constants'
-import { SET_CHARACTERS, ON_LOADING } from '../context/types'
+import { SET_CHARACTERS, ON_LOADING, SET_DARK_MODE } from '../context/types'
 
 const fetchFunction = async (searchParams, dispatch) => {
   try {
@@ -35,5 +35,12 @@ export const setGlobalState = async (searchParams, dispatch) => {
   dispatch({
     type: ON_LOADING,
     loading: false,
+  });
+}
+
+export const activeDarkMode = (active, dispatch) => {
+  dispatch({
+    type: SET_DARK_MODE,
+    darkMode: active,
   });
 }

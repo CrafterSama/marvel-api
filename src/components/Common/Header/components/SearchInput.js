@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { SearchInputContainer, StyledForm, StyledInput } from '../../../../styles'
+import { SearchInputContainer, StyledForm, StyledInput, IconImage } from '../../../../styles'
 import { setGlobalState } from '../../../../utils'
 import { useStateValue } from '../../../../context'
 
 const SearchInput = () => {
 
   const [search, setSearch] = useState()
-  const [, dispatch] = useStateValue();
+  const [state, dispatch] = useStateValue();
 
   const onChange = (e) => {
     setSearch(e.target.value)
@@ -31,11 +30,16 @@ const SearchInput = () => {
   return (
     <SearchInputContainer>
       <StyledForm onSubmit={onSubmit}>
-        <FontAwesomeIcon icon={faSearch} />
-        <StyledInput name="search" type="text" onChange={onChange} />
+        <IconImage icon={faSearch} darkmode={state.darkMode} />
+        <StyledInput
+          name='search'
+          type='text'
+          onChange={onChange}
+          darkmode={state.darkMode}
+        />
       </StyledForm>
     </SearchInputContainer>
-  )
+  );
 }
 
 export default SearchInput
