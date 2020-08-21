@@ -83,18 +83,23 @@ export const IconImage = styled(FontAwesomeIcon)`
   ${({ active }) => active && `
     color: #333;
   `}
+  ${({ faicon }) => faicon === 'faStart' && `
+    cursor: pointer;
+  `}
 `;
 
 export const IconImageMoon = styled(FontAwesomeIcon)`
   display: ${({ darkmode }) => darkmode === 'on' ? 'none' : 'flex' };
   font-size: 22px;
   color: #555;
+  cursor: pointer;
 `;
 
 export const IconImageSun = styled(FontAwesomeIcon)`
   display: ${({ darkmode }) => darkmode === 'on' ? 'flex' : 'none' };
   font-size: 22px;
   color: #eabe3a;
+  cursor: pointer;
 `;
 
 // /endHeader
@@ -113,10 +118,7 @@ export const HomeContainer = styled.section`
 
 export const LoadingBox = styled.div`
   display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  align-content: flex-start;
+  align-items: center;
   justify-content: center;
 `;
 
@@ -175,6 +177,7 @@ export const CharacterInfo = styled.div`
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
 export const CharacterName = styled.div`
@@ -232,7 +235,7 @@ export const ModalWrapper = styled.div`
 export const ModalCard = styled.div`
   display: inline-block;
   visibility: ${(props) => (props.in ? 'hidden' : 'visible')};
-  animation: ${fadeIn} .1s linear;
+  animation: ${(props) => (props.in ? fadeIn : fadeOut)} .1s linear;
   transition: visibility 1s linear;
   position: relative;
   min-width: 350px;
@@ -249,11 +252,10 @@ export const ModalCard = styled.div`
 
 export const ModalHeader = styled.div`
   min-height: 35px;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
-  > h4 {
+  > h3 {
     font-weight: 500;
     margin: 0;
   }
@@ -273,9 +275,7 @@ export const CloseButton = styled.button`
   border: none;
   background: transparent;
   position: relative;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 export const Background = styled.div`
   position: absolute;
@@ -289,6 +289,7 @@ export const Background = styled.div`
 
 export const CharacterModal = styled.div`
   display: grid;
+  width: 100%;
 `;
 
 export const CharacterModalName = styled.h4`
@@ -298,8 +299,8 @@ export const CharacterModalName = styled.h4`
 `;
 
 export const CharacterDescription = styled.p`
-  font-size: 15px;
-  margin: 0;
+  font-size: 14px;
+  margin: 0 0 10px;
   > span {
     font-weight: 500;
   }
@@ -309,9 +310,43 @@ export const ComicList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+  > h4 {
+    font-weight: 400;
+  }
 `;
 export const ComicListItem = styled.li`
-  display: flex;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  font-size: 14px;
+  gap: 20px;
+  margin-bottom: 10px;
+`;
+
+export const ComicImage = styled.div`
+  width: 70px;
+  height: 100px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px #999;
+  overflow: hidden;
+  margin-right: 10px;
+  > img {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+  }
+`;
+
+export const ComicTitle = styled.div`
+  a, a:hover, a:visited, a:focus {
+    font-weight: 500;
+    color: rgb(236, 29, 36);
+    text-decoration: none;
+    border-bottom: 1px solid rgb(236, 29, 36);
+  }
+  p {
+    font-size: 12px;
+  }
 `;
 
 // Footer

@@ -5,7 +5,7 @@ import CharacterModal from './CharacterModal'
 import CharacterComicsInfo from './CharacterComicsInfo'
 import { MainGrid, MainGridItem } from '../../../styles'
 
-const Main = () => {
+const Characters = () => {
 
   const [state] = useStateValue()
   const [isOpen, setIsOpen] = useState(false)
@@ -16,6 +16,8 @@ const Main = () => {
     setIsFade(!isFade)
     setIsOpen(!isOpen)
   }
+
+  console.log(state)
 
   return (
     <MainGrid>
@@ -30,10 +32,10 @@ const Main = () => {
           </MainGridItem>
         ))}
       <CharacterModal open={isOpen} toggle={handleToggleModal}>
-        <CharacterComicsInfo data={characterData} />
+        <CharacterComicsInfo data={characterData} toggle={handleToggleModal} />
       </CharacterModal>
     </MainGrid>
   );
 }
 
-export default Main
+export default Characters

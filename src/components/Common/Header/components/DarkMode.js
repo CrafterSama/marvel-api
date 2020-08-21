@@ -8,7 +8,7 @@ import {
   IconImageSun,
 } from '../../../../styles';
 import { useStateValue } from '../../../../context';
-import { activeDarkMode } from '../../../../utils';
+import { activeDarkMode } from '../../../../context/actions';
 
 const DarkMode = () => {
   // eslint-disable-next-line

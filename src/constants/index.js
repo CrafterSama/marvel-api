@@ -18,7 +18,8 @@ export const AUTH_HEADERS = {
   }
 };
 
-export const PARAM_STARTS_WITH = 'characters?nameStartsWith=';
+export const CHARACTERS_PARAMS = 'characters?nameStartsWith=';
+export const COMICS_PARAMS = 'comics?title=';
 
 
 export const CHARACTER_ARRAY = [
