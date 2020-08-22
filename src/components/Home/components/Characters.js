@@ -3,7 +3,11 @@ import { useStateValue } from '../../../context'
 import CharacterCard from './CharacterCard'
 import CharacterModal from './CharacterModal'
 import CharacterComicsInfo from './CharacterComicsInfo'
-import { MainGrid, MainGridItem } from '../../../styles'
+import ComicDetails from './CharacterComicsInfo'
+import {
+  MainGrid,
+  MainGridItem,
+} from '../../../styles'
 
 const Characters = () => {
 
@@ -17,24 +21,30 @@ const Characters = () => {
     setIsOpen(!isOpen)
   }
 
-  console.log(state)
-
   return (
-    <MainGrid>
-      {state.characters &&
-        state.characters.map((item, key) => (
-          <MainGridItem key={key}>
-            <CharacterCard
-              data={item}
-              setData={setCharacterData}
-              showCharacterInfo={handleToggleModal}
-            />
-          </MainGridItem>
-        ))}
+    <>
+      <MainGrid>
+        {state.characters &&
+          state.characters.map((item, key) => (
+            <MainGridItem key={key}>
+              <CharacterCard
+                data={item}
+                setData={setCharacterData}
+                showCharacterInfo={handleToggleModal}
+              />
+            </MainGridItem>
+          ))}
+        {state.comics &&
+          state.comics.map((item, key) => (
+            <MainGridItem key={key}>
+              <ComicDetails data={item} />
+            </MainGridItem>
+          ))}
+      </MainGrid>
       <CharacterModal open={isOpen} toggle={handleToggleModal}>
         <CharacterComicsInfo data={characterData} toggle={handleToggleModal} />
       </CharacterModal>
-    </MainGrid>
+    </>
   );
 }
 

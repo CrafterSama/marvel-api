@@ -3,19 +3,19 @@ import Header from '../Common/Header'
 import Footer from '../Common/Footer'
 import Home from '../Home'
 import {
-  Layout
+  MainLayout
 } from '../../styles'
 import { useStateValue } from '../../context'
 
-const PrincipalLayout = (props) => {
+const Layout = (props) => {
   const [state] = useStateValue()
   return (
-    <Layout darkmode={state.darkMode}>
+    <MainLayout darkmode={state.darkMode}>
       <Header />
       <Home />
       <Footer />
-    </Layout>
+    </MainLayout>
   )
 }
 
-export default PrincipalLayout
+export default Layout

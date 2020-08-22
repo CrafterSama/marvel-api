@@ -12,7 +12,6 @@ import {
   LoadingBox
 } from '../../../styles'
 import { useStateValue } from '../../../context'
-import { strToSlug } from '../../../helpers'
 
 const CharacterComicsInfo = ({ data, toggle }) => {
 
@@ -48,18 +47,14 @@ const CharacterComicsInfo = ({ data, toggle }) => {
                 </ComicImage>
                 <ComicTitle>
                   <Link
-                    to={`/characters/${strToSlug(data.name)}/comics/${strToSlug(
-                      comic.title
-                    )}`}
+                    to={`/comics/${comic.id}`}
                     onClick={toggle}
                   >
                     {comic.title}
                   </Link>
-                  <p>
-                    {comic.description
-                      ? `${comic.description.substring(0, 150)}...`
-                      : 'No Description'}
-                  </p>
+                  {comic.description ?
+                    <p dangerouslySetInnerHTML={{ __html: comic.description.substring(0, 150) + '...'}} />
+                      : <p>No Description</p>}
                 </ComicTitle>
               </ComicListItem>
             ))

@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Layout Styles
-export const Layout = styled.div`
+export const MainLayout = styled.div`
   color: ${({ darkmode }) => (darkmode === 'on' ? '#fff' : '#555')};
   background-color: ${({ darkmode }) =>
     darkmode === 'on' ? '#555' : ';#f0f0f0'};
@@ -348,6 +348,44 @@ export const ComicTitle = styled.div`
     font-size: 12px;
   }
 `;
+
+// ComicDetails
+export const ComicDetail = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  @media(min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+export const ComicImageBox = styled.div`
+  min-width: 250px;
+  max-width: 350px;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0 0 2px #999;
+  overflow: hidden;
+  > img {
+    min-width: 250px;
+    max-width: 350px;
+    object-fit: cover;
+    object-position: center;
+  }
+`;
+
+export const ComicInfo = styled.div`
+  h2 {
+    margin: 0 0 15px;
+  }
+`;
+
+export const ComicCreators = styled.div``;
+export const ComicDescription = styled.div``;
+export const ComicWriters = styled.div``;
+export const ComicPencilers = styled.div``;
+export const ComicArtists = styled.div``;
+
 
 // Footer
 export const FooterContainer = styled.div`

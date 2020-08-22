@@ -1,6 +1,6 @@
 export const initialState = {
     characters: '',
-    characterDetails: '',
+    characterDetails: [],
     comics: '',
     favorites: '',
     darkMode: '',

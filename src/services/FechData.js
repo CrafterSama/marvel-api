@@ -4,7 +4,6 @@ import { AUTH_HEADERS } from '../constants'
 export const getData = async (endPoint) => {
   try {
     const response = await axios.get(endPoint, { AUTH_HEADERS })
-
     return response
   } catch(err) {
     if (err.response) {

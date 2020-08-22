@@ -24,8 +24,12 @@ const Home = () => {
         </LoadingBox>
       ) : (
         <Switch>
-          <Route path='/' component={Characters} />
-          <Route path='/characters/:name/comics/:title' component={ComicsDetails} />
+          <Route exact path='/' component={Characters} />
+          <Route
+            exact
+            path='/comics/:id'
+            component={ComicsDetails}
+          />
         </Switch>
       )}
     </HomeContainer>

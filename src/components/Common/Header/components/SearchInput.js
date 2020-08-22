@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { SearchInputContainer, StyledForm, StyledInput, IconImage } from '../../../../styles'
 import { useStateValue } from '../../../../context'
-import { getCharacters, getComics, getComicByURL } from '../../../../context/actions'
+import { getCharacters, getComics, getComicByURL, getComicById, getCharactersRandomly } from '../../../../context/actions'
 
 const SearchInput = () => {
 
@@ -21,14 +21,24 @@ const SearchInput = () => {
   }
 
   const marvelData = () => {
-    if (location.search) {
+    if(!search && !location.search) {
+      getCharactersRandomly(dispatch);
+    }
+    if (!search && location.search) {
       const urlParams = new URLSearchParams(location.search);
       const browser = {
         character: urlParams.get('character'),
-        comic: urlParams.get('comic'),
+        comic: urlParams.get('comic').trim(),
+        hash: window.location.hash,
       };
       getComicByURL(browser, dispatch);
-    } else {
+    }
+    if (search && search.includes('www.marvel.com')) {
+      const searchArray = search.split('/');
+      getCharacters(search, dispatch);
+      getComicById(searchArray[5], dispatch);
+    }
+    if (search && !search.includes('www.marvel.com')) {
       getCharacters(search, dispatch);
       getComics(search, dispatch);
     }

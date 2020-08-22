@@ -1,6 +1,5 @@
 import React from 'react';
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
-import { faSun } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import {
   NavbarImageContainer,
   ImageBox,

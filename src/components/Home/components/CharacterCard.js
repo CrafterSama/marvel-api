@@ -6,12 +6,12 @@ import { useStateValue } from '../../../context'
 
 const CharacterCard = ({ data, showCharacterInfo, setData  }) => {
 
-  const  [, dispatch] = useStateValue()
+  const  [state, dispatch] = useStateValue()
 
   const showModal = (event) => {
     event.preventDefault()
     setData(data)
-    getCharactersComics(data.id, dispatch)
+    getCharactersComics(data.id, state, dispatch)
     showCharacterInfo()
   }
 
