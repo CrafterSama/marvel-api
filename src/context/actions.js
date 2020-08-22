@@ -71,7 +71,7 @@ export const getCharactersComics = async (searchParams, state, dispatch) => {
     loadingModal: true,
   });
   let characterDetails;
-  if (!state.characterDetails || (state.characterDetails && state.characterDetails.length > 1)) {
+  if ((!state.characterDetails || state.characterDetails.length < 1) || (state.characterDetails && state.characterDetails.length > 1)) {
 
     const endpoint = `characters/${searchParams}/comics`;
 
