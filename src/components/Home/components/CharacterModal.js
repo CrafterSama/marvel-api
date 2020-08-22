@@ -15,7 +15,7 @@ const Modal = ({ children, toggle, open }) => (
     <ModalWrapper>
       <ModalCard>
         <ModalHeader>
-          <h4>Character Info</h4>
+          <h3>Comic Info</h3>
           <CloseButton type="button" onClick={toggle}>
             <IconImage icon={faTimes} />
           </CloseButton>

@@ -2,15 +2,13 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { HomeContainer, LoadingBox } from '../../styles'
 import { SpinnerCircularFixed } from 'spinners-react';
-import Main from './components/Characters'
-import Character from './components/CharactersDetails'
+import Characters from './components/Characters'
+import ComicsDetails from './components/ComicDetails';
 import { useStateValue } from '../../context'
 
 const Home = () => {
 
   const [state] = useStateValue()
-
-  console.log(state)
 
   return (
     <HomeContainer>
@@ -26,8 +24,12 @@ const Home = () => {
         </LoadingBox>
       ) : (
         <Switch>
-          <Route path='/' component={Main} />
-          <Route path='/character' component={Character} />
+          <Route exact path='/' component={Characters} />
+          <Route
+            exact
+            path='/comics/:id'
+            component={ComicsDetails}
+          />
         </Switch>
       )}
     </HomeContainer>

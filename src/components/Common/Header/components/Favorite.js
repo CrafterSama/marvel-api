@@ -12,7 +12,7 @@ const Favorite = () => {
   return (
     <NavbarImageContainer>
       <ImageBox darkmode={state.darkMode}>
-        <IconImage icon={faStar} />
+        <IconImage faicon="faStart" icon={faStar} />
       </ImageBox>
     </NavbarImageContainer>
   );

@@ -1,11 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, Overlayer, CharacterInfo, CharacterName } from '../../../styles'
+import { getCharactersComics } from '../../../context/actions'
+import { useStateValue } from '../../../context'
 
 const CharacterCard = ({ data, showCharacterInfo, setData  }) => {
 
-  const showModal = () => {
+  const  [state, dispatch] = useStateValue()
+
+  const showModal = (event) => {
+    event.preventDefault()
     setData(data)
+    getCharactersComics(data.id, state, dispatch)
     showCharacterInfo()
   }
 

@@ -1,13 +1,17 @@
-import marvel from 'marvel-characters';
+export const isObject = (value) => {
+  return value && typeof value === 'object' && value.constructor === Object;
+}
 
-export const getRandomId = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+export const fixedEncodeURIComponent = (str) => {
+  return encodeURIComponent(str).replace(/[!'()*]/g, (c) => {
+    return '%' + c.charCodeAt(0).toString(16);
+  });
 };
 
-export const getRandomName = () => {
-  const nameArray = marvel.characters;
-  const randomName = nameArray[Math.floor(Math.random() * nameArray.length)];
-  return randomName;
+export const titleCamel = (str) => {
+  var splitStr = str.toLowerCase().split(' ');
+  for (var i = 0; i < splitStr.length; i++) {
+    splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+  }
+  return splitStr.join(' ');
 }

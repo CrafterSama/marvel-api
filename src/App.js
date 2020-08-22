@@ -1,14 +1,17 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { createBrowserHistory } from 'history';
+import { Router } from 'react-router-dom'
 import { StateProvider } from './context'
-import PrincipalLayout from './components/Layout/PrincipalLayout'
+import Layout from './components/Layout'
 import './App.css'
+
+const history = createBrowserHistory();
 
 function App() {
   return (
     <StateProvider>
-      <Router>
-        <PrincipalLayout />
+      <Router history={history}>
+        <Layout />
       </Router>
     </StateProvider>
   );
