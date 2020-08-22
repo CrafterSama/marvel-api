@@ -2,13 +2,14 @@ import {
   SET_CHARACTERS,
   SET_CHARACTERS_DETAILS,
   SET_COMICS,
+  SET_COMIC,
   ON_LOADING,
   ON_LOADING_MODAL,
   SET_DARK_MODE,
 } from '../context/types';
 import { buildApiCall, fetchFunction } from '../utils';
 import marvel from 'marvel-characters';
-import { fixedEncodeURIComponent, titleCamel } from '../helpers';
+import { fixedEncodeURIComponent } from '../helpers';
 
 export const getCharacters = async (searchParams, dispatch) => {
   dispatch({
@@ -75,8 +76,8 @@ export const getCharactersComics = async (searchParams, state, dispatch) => {
     type: ON_LOADING_MODAL,
     loadingModal: true,
   });
-  let characterDetails;
-  if (state.characterDetails && state.characterDetails.length === 0) {
+  let characterDetails = [];
+  if (state.characterDetails && (state.characterDetails.length === 0 || state.characterDetails.length > 1)) {
     const endpoint = `characters/${searchParams}/comics`;
 
     const response = await fetchFunction(buildApiCall(endpoint, false));
@@ -106,6 +107,7 @@ export const getComics = async (searchParams, dispatch) => {
   let comics;
   try {
     const response = await fetchFunction(buildApiCall(endpoint));
+    console.log(response.data)
     if (response.data.code === 200) {
       comics = response.data.data.results;
     } else {
@@ -116,7 +118,7 @@ export const getComics = async (searchParams, dispatch) => {
   }
   dispatch({
     type: SET_COMICS,
-    characters: comics,
+    comics: comics,
   });
   dispatch({
     type: ON_LOADING,
@@ -132,6 +134,7 @@ export const getComicByURL = async (searchParams, dispatch) => {
 
   let characters;
   const stepOne = `characters?name=${searchParams.character}`;
+  const comicToFilter = `${searchParams.comic.toLowerCase()} ${searchParams.hash}`.trim();
   const char = await fetchFunction(buildApiCall(stepOne));
 
   characters = char.data.data.results;
@@ -141,22 +144,29 @@ export const getComicByURL = async (searchParams, dispatch) => {
     characters: characters,
   });
 
-  const stepTwo = `characters/${characters[0].id}/comics`;
-  const stepTwoResponse = await fetchFunction(buildApiCall(stepTwo, false));
+  const stepTwo = `characters/${characters[0].id}/comics?limit=100`;
+  const stepTwoResponse = await fetchFunction(buildApiCall(stepTwo));
 
   let comics = stepTwoResponse.data.data.results
-  let comic = comics.filter((o) => o.title === `${titleCamel(searchParams.comic)} ${searchParams.hash}`)
+  let comic = comics.filter((o) => o.title.toLowerCase() === comicToFilter)
 
-
-  const stepThree = `comics/${comic[0].id}`;
-  const stepThreeResponse = await fetchFunction(buildApiCall(stepThree, false));
+  debugger
 
   let characterDetails;
 
-  if (stepThreeResponse.data.code === 200) {
-    characterDetails = stepThreeResponse.data.data.results;
+  if (comic.length > 0) {
+    const stepThree = `comics/${comic[0].id}`;
+    const stepThreeResponse = await fetchFunction(buildApiCall(stepThree, false));
+
+
+    if (stepThreeResponse.data.code === 200) {
+      characterDetails = stepThreeResponse.data.data.results;
+    } else {
+      characterDetails = [];
+    }
   } else {
     characterDetails = [];
+    alert('Especificamente este Comic No fue encontrado, o el titulo esta mal escrito');
   }
   dispatch({
     type: SET_CHARACTERS_DETAILS,
@@ -173,22 +183,20 @@ export const getComicById = async (searchParams, dispatch) => {
     loading: true,
   });
   const endpoint = `comics/${searchParams}`;
-  let comics;
+  let comic;
   try {
     const response = await fetchFunction(buildApiCall(endpoint, false));
-    console.log(response);
     if (response.data.code === 200) {
-      comics = response.data.data.results;
+      comic = response.data.data.results;
     } else {
-      comics = [];
+      comic = [];
     }
   } catch (error) {
     console.error(error)
   }
-  console.log(comics)
   dispatch({
-    type: SET_COMICS,
-    comics: comics,
+    type: SET_COMIC,
+    comic: comic,
   });
   dispatch({
     type: ON_LOADING,

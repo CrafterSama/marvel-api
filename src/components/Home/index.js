@@ -2,8 +2,8 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { HomeContainer, LoadingBox } from '../../styles'
 import { SpinnerCircularFixed } from 'spinners-react';
-import Characters from './components/Characters'
-import ComicsDetails from './components/ComicDetails';
+import SearchResults from '../Common/SearchResults'
+import ComicsDetails from '../Details/components/ComicDetails';
 import { useStateValue } from '../../context'
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
         </LoadingBox>
       ) : (
         <Switch>
-          <Route exact path='/' component={Characters} />
+          <Route exact path='/' component={SearchResults} />
           <Route
             exact
             path='/comics/:id'

@@ -3,13 +3,15 @@ import { Link, Redirect } from 'react-router-dom'
 import logo from '../../../../assets/marvel-logo.svg'
 import { LogoContainer, ImageContainer } from '../../../../styles'
 import { useStateValue } from '../../../../context'
+import { getCharactersRandomly } from '../../../../context/actions'
 
 const Logo = () => {
 
-  const [state] = useStateValue()
+  const [state, dispatch] = useStateValue()
 
   const toHome = () => {
-    return <Redirect to='/' />
+    getCharactersRandomly(dispatch);
+    return <Redirect to='/' />;
   }
 
   return (
@@ -23,4 +25,4 @@ const Logo = () => {
   );
 }
 
-export default Logo
+export default Logo;

@@ -116,6 +116,15 @@ export const HomeContainer = styled.section`
   }
 `;
 
+export const SectionTitle = styled.h3`
+  background: #ec1d24;
+  color: #fff;
+  padding: 10px;
+  border-left: 7px solid #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`;
+
 export const LoadingBox = styled.div`
   display: flex;
   align-items: center;
@@ -141,7 +150,7 @@ export const MainGridItem = styled.div`
 `;
 
 
-// CharacterCard
+// Card
 export const Card = styled.div`
   ${({ background }) => background && `
     background-image: url(${background.path}.${background.extension});
@@ -170,7 +179,7 @@ export const Overlayer = styled.div`
   border-radius: 3px;
 `;
 
-export const CharacterInfo = styled.div`
+export const CardInfo = styled.div`
   top: 0;
   position: relative;
   height: 100%;
@@ -180,7 +189,7 @@ export const CharacterInfo = styled.div`
   cursor: pointer;
 `;
 
-export const CharacterName = styled.div`
+export const CardName = styled.div`
   display: flex;
   align-items: flex-end;
   > span {
@@ -190,7 +199,7 @@ export const CharacterName = styled.div`
   }
 `;
 
-// /CharacterCard
+// /Card
 
 // Animation
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Card, Overlayer, CharacterInfo, CharacterName } from '../../../styles'
+import { Card, Overlayer, CardInfo, CardName } from '../../../styles'
 import { getCharactersComics } from '../../../context/actions'
 import { useStateValue } from '../../../context'
 
@@ -18,12 +18,12 @@ const CharacterCard = ({ data, showCharacterInfo, setData  }) => {
   return (
     <Card background={data.thumbnail}>
       <Overlayer />
-      <CharacterInfo onClick={showModal}>
-        <CharacterName>
+      <CardInfo onClick={showModal}>
+        <CardName>
           <span>{data.name}</span>
-        </CharacterName>
+        </CardName>
         <div className='character-favorite'></div>
-      </CharacterInfo>
+      </CardInfo>
     </Card>
   );
 }

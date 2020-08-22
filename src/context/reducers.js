@@ -2,6 +2,7 @@ import {
   SET_CHARACTERS,
   SET_CHARACTERS_DETAILS,
   SET_COMICS,
+  SET_COMIC,
   SET_FAVORITES,
   SET_DARK_MODE,
   ON_LOADING,
@@ -24,6 +25,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         comics: action.comics
+      };
+    case SET_COMIC:
+      return {
+        ...state,
+        comic: action.comic
       };
     case SET_FAVORITES:
       return {
