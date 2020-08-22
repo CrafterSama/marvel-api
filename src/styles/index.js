@@ -104,8 +104,7 @@ export const IconImageSun = styled(FontAwesomeIcon)`
 
 // /endHeader
 
-// Home
-export const HomeContainer = styled.section`
+export const Container = styled.section`
   margin: 0 auto;
   padding: 50px 15px;
   min-height: 800px;
@@ -115,6 +114,8 @@ export const HomeContainer = styled.section`
     max-width: 50%;
   }
 `;
+
+// Home
 
 export const SectionTitle = styled.h3`
   background: #ec1d24;

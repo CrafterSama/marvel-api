@@ -12,8 +12,6 @@ const SearchInput = () => {
   const [search, setSearch] = useState();
   const [state, dispatch] = useStateValue();
 
-  console.log(id)
-
   const onChange = (e) => {
     setSearch(e.target.value);
   };
@@ -52,18 +50,22 @@ const SearchInput = () => {
   }, [])
 
   return (
-    <SearchInputContainer>
-      <StyledForm onSubmit={onSubmit}>
-        <IconImage icon={faSearch} darkmode={state.darkMode} />
-        <StyledInput
-          name='search'
-          type='text'
-          placeholder="Search"
-          onChange={onChange}
-          darkmode={state.darkMode}
-        />
-      </StyledForm>
-    </SearchInputContainer>
+    <>
+      {!id &&
+        <SearchInputContainer>
+          <StyledForm onSubmit={onSubmit}>
+            <IconImage icon={faSearch} darkmode={state.darkMode} />
+            <StyledInput
+              name='search'
+              type='text'
+              placeholder="Search"
+              onChange={onChange}
+              darkmode={state.darkMode}
+            />
+          </StyledForm>
+        </SearchInputContainer>
+      }
+    </>
   );
 }
 

@@ -1,13 +1,13 @@
 import React from 'react';
-import { HomeContainer } from '../../styles';
+import { Container } from '../../styles';
 import SearchResults from '../Common/SearchResults';
 
 const Character = () => {
 
   return (
-    <HomeContainer>
+    <Container>
       <SearchResults />
-    </HomeContainer>
+    </Container>
   );
 };
 
