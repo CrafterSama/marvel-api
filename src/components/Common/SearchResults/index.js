@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useStateValue } from '../../../context'
-import CharacterCard from '../../Home/components/CharacterCard'
-import CharacterModal from '../../Home/components/CharacterModal'
-import ComicDetails from '../../Home/components/CharacterComicsInfo'
+import CharacterCard from '../../Character/components/CharacterCard'
+import CharacterModal from '../../Character/components/CharacterModal'
+import Details from '../../Details/components/Details'
 import {
   MainGrid,
   MainGridItem,
@@ -54,7 +54,7 @@ const SearchResults = () => {
               <MainGridItem key={key}>
                 <Card background={item.thumbnail}>
                   <Overlayer />
-                  <Link push to={`/comics/${item.id}`}>
+                  <Link to={`/comics/${item.id}`}>
                     <CardInfo>
                       <CardName>
                         <span>{item.title}</span>
@@ -69,11 +69,14 @@ const SearchResults = () => {
         </>
       }
       {state.comic &&
-        <MainGrid>
-          {state.comic.map((item, key) => (
-            <ComicDetails data={item} key={key} />
-          ))}
-        </MainGrid>
+        <>
+          <SectionTitle>Marvel Issue</SectionTitle>
+          <MainGrid>
+            {state.comic.map((item, key) => (
+              <Details data={item} key={key} />
+            ))}
+          </MainGrid>
+        </>
       }
       <CharacterModal
         isOpen={isOpen}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { SearchInputContainer, StyledForm, StyledInput, IconImage } from '../../../../styles'
 import { useStateValue } from '../../../../context'
@@ -8,17 +8,20 @@ import { getCharacters, getComics, getComicByURL, getComicById, getCharactersRan
 const SearchInput = () => {
 
   const location = useLocation();
+  const { id } = useParams();
   const [search, setSearch] = useState();
   const [state, dispatch] = useStateValue();
 
+  console.log(id)
+
   const onChange = (e) => {
-    setSearch(e.target.value)
-  }
+    setSearch(e.target.value);
+  };
 
   const onSubmit = (event) => {
-    event.preventDefault()
-    marvelData()
-  }
+    event.preventDefault();
+    marvelData();
+  };
 
   const marvelData = () => {
     if(!search && !location.search) {
@@ -35,7 +38,6 @@ const SearchInput = () => {
     }
     if (search && search.includes('www.marvel.com')) {
       const searchArray = search.split('/');
-      getCharacters(search, dispatch);
       getComicById(searchArray[5], dispatch);
     }
     if (search && !search.includes('www.marvel.com')) {

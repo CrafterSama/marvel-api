@@ -36,3 +36,5 @@ export const CHARACTER_ARRAY = [
 	'Captain Marvel',
 	'Doctor Strange',
 ]
+
+export const NO_DESCRIPTION = 'No Description';
