@@ -7,7 +7,7 @@ import {
   ON_LOADING_MODAL,
   SET_DARK_MODE,
 } from '../context/types';
-import { buildApiCall, fetchFunction } from '../utils';
+import { buildApiCall, fetchFunction, resetStore } from '../utils';
 import marvel from 'marvel-characters';
 import { fixedEncodeURIComponent } from '../helpers';
 
@@ -18,6 +18,8 @@ export const getCharacters = async (searchParams, dispatch) => {
   });
   const endpoint = `characters?nameStartsWith=${fixedEncodeURIComponent(searchParams)}`
 
+  resetStore(dispatch);
+
   let characters;
   const response = await fetchFunction(buildApiCall(endpoint));
 
@@ -26,11 +28,7 @@ export const getCharacters = async (searchParams, dispatch) => {
   } else {
     characters = [];
   }
-  let characterDetails = [];
-  dispatch({
-    type: SET_CHARACTERS_DETAILS,
-    characterDetails: characterDetails,
-  });
+
   dispatch({
     type: SET_CHARACTERS,
     characters: characters,
@@ -48,6 +46,7 @@ export const getCharactersRandomly = async (dispatch) => {
   });
   const endpoint = `characters?nameStartsWith=${marvel()}`
 
+  resetStore(dispatch);
   let characters;
   const response = await fetchFunction(buildApiCall(endpoint));
 
@@ -56,11 +55,6 @@ export const getCharactersRandomly = async (dispatch) => {
   } else {
     characters = [];
   }
-  let characterDetails = [];
-  dispatch({
-    type: SET_CHARACTERS_DETAILS,
-    characterDetails: characterDetails,
-  });
   dispatch({
     type: SET_CHARACTERS,
     characters: characters,
@@ -76,8 +70,9 @@ export const getCharactersComics = async (searchParams, state, dispatch) => {
     type: ON_LOADING_MODAL,
     loadingModal: true,
   });
-  let characterDetails = [];
-  if (state.characterDetails && (state.characterDetails.length === 0 || state.characterDetails.length > 1)) {
+  let characterDetails;
+  if (!state.characterDetails || (state.characterDetails && state.characterDetails.length > 1)) {
+
     const endpoint = `characters/${searchParams}/comics`;
 
     const response = await fetchFunction(buildApiCall(endpoint, false));
@@ -104,6 +99,7 @@ export const getComics = async (searchParams, dispatch) => {
     loading: true,
   });
   const endpoint = `comics?titleStartsWith=${fixedEncodeURIComponent(searchParams)}`;
+  resetStore(dispatch);
   let comics;
   try {
     const response = await fetchFunction(buildApiCall(endpoint));
@@ -132,6 +128,8 @@ export const getComicByURL = async (searchParams, dispatch) => {
     loading: true,
   });
 
+  resetStore(dispatch)
+
   let characters;
   const stepOne = `characters?name=${searchParams.character}`;
   const comicToFilter = `${searchParams.comic.toLowerCase()} ${searchParams.hash}`.trim();
@@ -149,8 +147,6 @@ export const getComicByURL = async (searchParams, dispatch) => {
 
   let comics = stepTwoResponse.data.data.results
   let comic = comics.filter((o) => o.title.toLowerCase() === comicToFilter)
-
-  debugger
 
   let characterDetails;
 
@@ -183,6 +179,7 @@ export const getComicById = async (searchParams, dispatch) => {
     loading: true,
   });
   const endpoint = `comics/${searchParams}`;
+  resetStore(dispatch);
   let comic;
   try {
     const response = await fetchFunction(buildApiCall(endpoint, false));

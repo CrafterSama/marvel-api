@@ -2,7 +2,7 @@ import React from 'react'
 import { createBrowserHistory } from 'history';
 import { Router } from 'react-router-dom'
 import { StateProvider } from './context'
-import Layout from './components/Layout'
+import Layout from './layout/Principal'
 import './App.css'
 
 const history = createBrowserHistory();

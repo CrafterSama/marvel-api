@@ -215,18 +215,6 @@ const fadeIn = keyframes`
   }
 `;
 
-const fadeOut = keyframes`
-  from {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-`;
-
 // Modal
 
 export const ModalWrapper = styled.div`
@@ -244,7 +232,7 @@ export const ModalWrapper = styled.div`
 export const ModalCard = styled.div`
   display: inline-block;
   visibility: ${(props) => (props.in ? 'hidden' : 'visible')};
-  animation: ${(props) => (props.in ? fadeIn : fadeOut)} .1s linear;
+  animation: ${fadeIn} .1s linear;
   transition: visibility 1s linear;
   position: relative;
   min-width: 350px;
@@ -371,6 +359,7 @@ export const ComicDetail = styled.div`
 export const ComicImageBox = styled.div`
   min-width: 250px;
   max-width: 350px;
+  max-height: 550px;
   width: 100%;
   border-radius: 3px;
   box-shadow: 0 0 2px #999;
@@ -378,6 +367,7 @@ export const ComicImageBox = styled.div`
   > img {
     min-width: 250px;
     max-width: 350px;
+    max-height: 550px;
     object-fit: cover;
     object-position: center;
   }
@@ -389,11 +379,25 @@ export const ComicInfo = styled.div`
   }
 `;
 
-export const ComicCreators = styled.div``;
-export const ComicDescription = styled.div``;
-export const ComicWriters = styled.div``;
-export const ComicPencilers = styled.div``;
-export const ComicArtists = styled.div``;
+export const ComicCreators = styled.div`
+  display: grid;
+`;
+
+export const DetailsItem = styled.div`
+  margin: 10px 0;
+  > span {
+    &:after {
+      content: ', ';
+    }
+    &:last-child {
+      content: '';
+    }
+  }
+`;
+
+export const TextStrong = styled.div`
+  font-weight: 500;
+`;
 
 
 // Footer
