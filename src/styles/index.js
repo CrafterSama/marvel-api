@@ -29,6 +29,10 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+  input {
+    border: none;
+    outline: none;
+  }
 `;
 
 // Layout Styles
