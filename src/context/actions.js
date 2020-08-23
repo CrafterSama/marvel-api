@@ -129,10 +129,11 @@ export const getComicByURL = async (searchParams, dispatch) => {
   });
 
   resetStore(dispatch)
+  console.log(searchParams);
 
   let characters;
   const stepOne = `characters?name=${searchParams.character}`;
-  const comicToFilter = `${searchParams.comic.toLowerCase()} ${searchParams.hash}`.trim();
+  const comicToFilter = searchParams.comic && `${searchParams.comic.toLowerCase()} ${searchParams.hash}`.trim();
   const char = await fetchFunction(buildApiCall(stepOne));
 
   characters = char.data.data.results;
