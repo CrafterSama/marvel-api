@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for <Comics /> Component matches snapshot 1`] = `
+<styles__Container>
+  <styles__LoadingBox>
+    <Wrapper
+      color="rgba(236, 29, 36, 1)"
+      enabled={true}
+      secondaryColor="rgba(204, 204, 204, 1)"
+      size={100}
+      speed={100}
+      style={Object {}}
+      thickness={100}
+    />
+  </styles__LoadingBox>
+</styles__Container>
+`;

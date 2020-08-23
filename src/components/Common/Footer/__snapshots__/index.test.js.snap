@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for <Footer /> Component matches snapshot 1`] = `
+<styles__FooterContainer
+  darkmode=""
+>
+  <p>
+    Made by 
+    <a
+      href="https://craftersama.com"
+      target="_blanc"
+    >
+      Julmer Olivero
+    </a>
+  </p>
+</styles__FooterContainer>
+`;

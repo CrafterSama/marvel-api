@@ -1,8 +1,8 @@
 import React from 'react'
 import Character from '../../components/Character';
 
-const Index = () => {
+const Home = () => {
   return <Character />
 }
 
-export default Index
+export default Home

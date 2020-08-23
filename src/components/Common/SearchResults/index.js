@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import { useStateValue } from '../../../context'
 import CharacterCard from '../../Character/components/CharacterCard'
 import CharacterModal from '../../Character/components/CharacterModal'
-import Details from '../../Details/components/Details'
+import ComicDetails from '../../Details/Comics/components/ComicDetails'
 import {
   MainGrid,
   MainGridItem,
   Card,
   CardInfo,
   CardName,
-  SectionTitle,
+  /* SectionTitle, */
   Overlayer
 } from '../../../styles'
 
@@ -30,7 +30,7 @@ const SearchResults = () => {
     <>
       {state.characters &&
         <>
-          <SectionTitle>Characters</SectionTitle>
+          {/* <SectionTitle>Characters</SectionTitle> */}
           <MainGrid>
             {state.characters.map((item, key) => (
               <MainGridItem key={key}>
@@ -46,7 +46,7 @@ const SearchResults = () => {
       }
       {state.comics &&
         <>
-          <SectionTitle>Comics</SectionTitle>
+          {/* <SectionTitle>Comics</SectionTitle> */}
           <MainGrid>
             {state.comics.map((item, key) => (
               <MainGridItem key={key}>
@@ -68,10 +68,10 @@ const SearchResults = () => {
       }
       {state.comic &&
         <>
-          <SectionTitle>Marvel Issue</SectionTitle>
+          {/* <SectionTitle>Marvel Issue</SectionTitle> */}
           <MainGrid>
             {state.comic.map((item, key) => (
-              <Details data={item} key={key} />
+              <ComicDetails data={item} key={key} />
             ))}
           </MainGrid>
         </>

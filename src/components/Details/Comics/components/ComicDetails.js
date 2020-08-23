@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   NO_DESCRIPTION,
-} from '../../../constants';
+} from '../../../../constants';
 
 import {
   ComicDetail,
@@ -11,7 +11,7 @@ import {
   ComicCreators,
   DetailsItem,
   TextStrong,
-} from '../../../styles';
+} from '../../../../styles';
 
 const ComicDetails = ({ data }) => {
 

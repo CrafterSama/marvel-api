@@ -18,10 +18,10 @@ const ComicCard = ({ data }) => {
       </Link>
     </Card>
   );
-}
+};
 
 ComicCard.propTypes = {
   data: PropTypes.object.isRequired
-}
+};
 
-export default ComicCard
+export default ComicCard;

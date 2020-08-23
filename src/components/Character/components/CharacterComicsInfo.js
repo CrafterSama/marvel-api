@@ -15,7 +15,7 @@ import { useStateValue } from '../../../context'
 
 const CharacterComicsInfo = ({ data, toggle }) => {
 
-  const [state] = useStateValue()
+  const [state,] = useStateValue()
 
   return (
     <CharacterModal>
