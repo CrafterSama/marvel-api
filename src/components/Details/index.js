@@ -24,15 +24,17 @@ const Comics = () => {
 
   if (isEmpty) {
     return (
-      <LoadingBox>
-        <SpinnerCircularFixed
-          size={100}
-          thickness={100}
-          speed={100}
-          color='rgba(236, 29, 36, 1)'
-          secondaryColor='rgba(204, 204, 204, 1)'
-        />
-      </LoadingBox>
+      <Container>
+        <LoadingBox>
+          <SpinnerCircularFixed
+            size={100}
+            thickness={100}
+            speed={100}
+            color='rgba(236, 29, 36, 1)'
+            secondaryColor='rgba(204, 204, 204, 1)'
+          />
+        </LoadingBox>
+      </Container>
     )
   }
 

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export const MainLayout = styled.div`
   color: ${({ darkmode }) => (darkmode === 'on' ? '#fff' : '#555')};
   background-color: ${({ darkmode }) =>
-    darkmode === 'on' ? '#555' : ';#f0f0f0'};
+    darkmode === 'on' ? '#444' : ';#f0f0f0'};
 `;
 // /endLayout Styles
 
@@ -143,6 +143,7 @@ export const MainGrid = styled.div`
 export const MainGridItem = styled.div`
   min-height: 350px;
   min-width: 200px;
+  /*max-width: 210px;*/
   -webkit-box-flex: 1;
   flex: 1 0 30%;
   margin: 10px;
