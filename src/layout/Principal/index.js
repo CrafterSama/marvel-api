@@ -29,7 +29,7 @@ const Layout = (props) => {
         </LoadingBox>
       ) : (
         <Switch>
-          <Route path='/' component={Home} />
+            <Route exact path='/' component={Home} />
           <Route
             path='/comics/:id'
             component={Details}
