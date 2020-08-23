@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { Card, Overlayer, CharacterInfo, CharacterName } from '../../../styles'
+import { Card, Overlayer, CardInfo, CardName } from '../../../styles'
 
 const ComicCard = ({ data }) => {
 
@@ -9,12 +9,12 @@ const ComicCard = ({ data }) => {
     <Card background={data.thumbnail}>
       <Overlayer />
       <Link to={`comics/${data.id}`}>
-        <CharacterInfo>
-          <CharacterName>
+        <CardInfo>
+          <CardName>
             <span>{data.name}</span>
-          </CharacterName>
+          </CardName>
           <div className='character-favorite'></div>
-        </CharacterInfo>
+        </CardInfo>
       </Link>
     </Card>
   );

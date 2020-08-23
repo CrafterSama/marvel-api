@@ -6,14 +6,14 @@ exports[`Test for <ComicCard /> Component matches snapshot 1`] = `
   <Link
     to="comics/undefined"
   >
-    <Component>
-      <Component>
+    <styles__CardInfo>
+      <styles__CardName>
         <span />
-      </Component>
+      </styles__CardName>
       <div
         className="character-favorite"
       />
-    </Component>
+    </styles__CardInfo>
   </Link>
 </styles__Card>
 `;

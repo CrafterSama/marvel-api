@@ -1,6 +1,35 @@
 // eslint-disable-in-file
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, createGlobalStyle } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+  html {
+    background-color: ${({ darkmode }) =>
+      darkmode === 'on' ? '#444' : '#f0f0f0'};
+  }
+
+  body {
+    background-color: ${({ darkmode }) =>
+      darkmode === 'on' ? '#444' : '#f0f0f0'};
+    height: 100vh;
+    margin: 0;
+    max-width: 100vw;
+    overscroll-behavior: none;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+`;
 
 // Layout Styles
 export const MainLayout = styled.div`
@@ -107,7 +136,7 @@ export const IconImageSun = styled(FontAwesomeIcon)`
 export const Container = styled.section`
   margin: 0 auto;
   padding: 10px;
-  min-height: 700px;
+  height: 100vh;
   max-width: 992px;
   width: 100%;
   position: relative;
@@ -144,7 +173,7 @@ export const MainGrid = styled.div`
 export const MainGridItem = styled.div`
   min-height: 350px;
   min-width: 200px;
-  /*max-width: 210px;*/
+  max-width: 220px;
   -webkit-box-flex: 1;
   flex: 1 0 30%;
   margin: 10px;

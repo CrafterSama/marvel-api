@@ -15,8 +15,10 @@ const DarkMode = () => {
 
   const handleDarkMode = () => {
     if(state.darkMode === 'on') {
+      localStorage.setItem('darkmode', '');
       activeDarkMode('', dispatch)
     } else {
+      localStorage.setItem('darkmode', 'on');
       activeDarkMode('on', dispatch)
     }
   };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { SpinnerCircularFixed } from 'spinners-react';
 import Header from '../../components/Common/Header';
@@ -9,10 +9,22 @@ import {
 import Home from '../../pages/Home';
 import Details from '../../pages/Details';
 import { useStateValue } from '../../context';
+import { activeDarkMode } from '../../context/actions';
 
 const Layout = () => {
 
-  const [state] = useStateValue();
+  const [state, dispatch] = useStateValue();
+
+  const darkModeOn = () => {
+    if (localStorage.getItem('darkmode') === 'on') {
+      activeDarkMode('on', dispatch);
+    }
+  }
+
+  useEffect(() => {
+    darkModeOn();
+    return () => {}
+  });
 
   return (
     <MainLayout darkmode={state.darkMode}>
