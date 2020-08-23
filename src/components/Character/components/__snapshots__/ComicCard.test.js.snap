@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for <ComicCard /> Component matches snapshot 1`] = `
+<styles__Card>
+  <styles__Overlayer />
+  <Link
+    to="comics/undefined"
+  >
+    <Component>
+      <Component>
+        <span />
+      </Component>
+      <div
+        className="character-favorite"
+      />
+    </Component>
+  </Link>
+</styles__Card>
+`;

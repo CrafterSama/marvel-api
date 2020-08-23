@@ -1,5 +1,5 @@
-import React from 'react'
-import { FooterContainer } from '../../../styles'
+import React from 'react';
+import { FooterContainer } from '../../../styles';
 import { useStateValue } from '../../../context';
 
 const Footer = () => {
@@ -11,6 +11,6 @@ const Footer = () => {
       </p>
     </FooterContainer>
   );
-}
+};
 
 export default Footer

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for <CharacterCard /> Component matches snapshot 1`] = `
+<styles__Card>
+  <styles__Overlayer />
+  <styles__CardInfo
+    onClick={[Function]}
+  >
+    <styles__CardName>
+      <span />
+    </styles__CardName>
+    <div
+      className="character-favorite"
+    />
+  </styles__CardInfo>
+</styles__Card>
+`;

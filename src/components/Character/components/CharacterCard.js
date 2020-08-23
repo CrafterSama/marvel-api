@@ -26,10 +26,10 @@ const CharacterCard = ({ data, showCharacterInfo, setData  }) => {
       </CardInfo>
     </Card>
   );
-}
+};
 
 CharacterCard.propTypes = {
   data: PropTypes.object.isRequired
-}
+};
 
-export default CharacterCard
+export default CharacterCard;

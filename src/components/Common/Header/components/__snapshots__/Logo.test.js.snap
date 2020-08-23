@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<styles__LogoContainer>
+  <styles__ImageContainer
+    darkmode=""
+  >
+    <Link
+      onClick={[Function]}
+      to="/"
+    >
+      <img
+        alt="Marvel Logo"
+        src={
+          Object {
+            "getCacheKey": [Function],
+            "process": [Function],
+          }
+        }
+      />
+    </Link>
+  </styles__ImageContainer>
+</styles__LogoContainer>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for <Layout /> Component matches snapshot 1`] = `
+<styles__MainLayout
+  darkmode=""
+>
+  <Header />
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/comics/:id"
+    />
+  </Switch>
+</styles__MainLayout>
+`;

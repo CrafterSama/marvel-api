@@ -106,13 +106,14 @@ export const IconImageSun = styled(FontAwesomeIcon)`
 
 export const Container = styled.section`
   margin: 0 auto;
-  padding: 50px 15px;
-  min-height: 800px;
-  max-width: 80%;
+  padding: 10px;
+  min-height: 700px;
+  max-width: 992px;
+  width: 100%;
   position: relative;
-  @media (min-width: 993px) {
-    max-width: 50%;
-  }
+  /* @media (min-width: 1024px) {
+    max-width: ;
+  } */
 `;
 
 // Home
@@ -237,7 +238,7 @@ export const ModalCard = styled.div`
   animation: ${fadeIn} .1s linear;
   transition: visibility 1s linear;
   position: relative;
-  min-width: 350px;
+  min-width: 280px;
   max-width: 600px;
   z-index: 10;
   margin-bottom: 100px;
@@ -245,7 +246,7 @@ export const ModalCard = styled.div`
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   @media(max-width: 400px) {
-    width: 300px;
+    min-width: 300px;
   }
 `;
 

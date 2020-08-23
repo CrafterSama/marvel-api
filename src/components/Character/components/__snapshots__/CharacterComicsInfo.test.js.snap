@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for <CharacterComicsInfo /> Component matches snapshot 1`] = `
+<styles__CharacterModal>
+  <styles__CharacterModalName />
+  <styles__CharacterDescription>
+    No Description
+  </styles__CharacterDescription>
+  <styles__ComicList>
+    <h4>
+      Comics:
+    </h4>
+    <p>
+      No Comics Associated
+    </p>
+  </styles__ComicList>
+</styles__CharacterModal>
+`;

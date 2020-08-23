@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { SpinnerCircularFixed } from 'spinners-react';
-import { getComicById } from '../../context/actions';
-import { useStateValue } from '../../context';
-import { LoadingBox, Container } from '../../styles';
-import Details from './components/Details';
+import { getComicById } from '../../../context/actions';
+import { useStateValue } from '../../../context';
+import { LoadingBox, Container } from '../../../styles';
+import ComicDetails from './components/ComicDetails';
 
 const Comics = () => {
 
-  const { id } = useParams();
+  const { id, } = useParams();
   const [state, dispatch] = useStateValue();
-
-  console.log(id, state, 'index');
 
   useEffect(() => {
     if (!state.comic) {
@@ -35,17 +33,17 @@ const Comics = () => {
           />
         </LoadingBox>
       </Container>
-    )
-  }
+    );
+  };
 
   return (
     <Container>
-      {state.comic && state.comic.map((c, key) => (
-        <Details data={c} key={key} />
+      {state.comic && state.comic.map((comic, key) => (
+        <ComicDetails data={comic} key={key} />
       ))}
     </Container>
-  )
+  );
 
-}
+};
 
 export default Comics;

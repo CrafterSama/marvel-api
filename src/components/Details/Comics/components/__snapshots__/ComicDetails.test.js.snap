@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ComicDetails /> matches snapshot 1`] = `
+<styles__ComicDetail>
+  <styles__ComicImageBox>
+    <img
+      alt="New Mutants by Zeb Wells: The Complete Collection (Trade Paperback)"
+      src="http://i.annihil.us/u/prod/marvel/i/mg/f/e0/5bb5301610695.jpg"
+    />
+  </styles__ComicImageBox>
+  <styles__ComicInfo>
+    <h2>
+      New Mutants by Zeb Wells: The Complete Collection (Trade Paperback)
+    </h2>
+    <styles__ComicCreators>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Public Time: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Writers: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Pencilers: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Artists: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Colorists: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Editors: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Inkers: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Letterers: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+      <styles__DetailsItem>
+        <styles__TextStrong>
+          Cover Artists: 
+        </styles__TextStrong>
+      </styles__DetailsItem>
+    </styles__ComicCreators>
+    <styles__DetailsItem>
+      description
+    </styles__DetailsItem>
+  </styles__ComicInfo>
+</styles__ComicDetail>
+`;

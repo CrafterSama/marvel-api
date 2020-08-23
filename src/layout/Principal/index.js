@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { SpinnerCircularFixed } from 'spinners-react';
 import Header from '../../components/Common/Header';
-import Footer from '../../components/Common/Footer';
+/* import Footer from '../../components/Common/Footer'; */
 import {
   MainLayout, LoadingBox
 } from '../../styles';
@@ -10,7 +10,7 @@ import Home from '../../pages/Home';
 import Details from '../../pages/Details';
 import { useStateValue } from '../../context';
 
-const Layout = (props) => {
+const Layout = () => {
 
   const [state] = useStateValue();
 
@@ -36,7 +36,7 @@ const Layout = (props) => {
           />
         </Switch>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </MainLayout>
   );
 };
