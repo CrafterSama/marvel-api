@@ -9,22 +9,10 @@ import {
 import Home from '../../pages/Home';
 import Details from '../../pages/Details';
 import { useStateValue } from '../../context';
-import { activeDarkMode } from '../../context/actions';
 
 const Layout = () => {
 
-  const [state, dispatch] = useStateValue();
-
-  const darkModeOn = () => {
-    if (localStorage.getItem('darkmode') === 'on') {
-      activeDarkMode('on', dispatch);
-    }
-  }
-
-  useEffect(() => {
-    darkModeOn();
-    //eslint-disable-next-line
-  }, []);
+  const [state] = useStateValue();
 
   return (
     <MainLayout darkmode={state.darkMode}>
