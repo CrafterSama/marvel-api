@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useStateValue } from '../../../context'
-import CharacterCard from '../../Character/components/CharacterCard'
-import CharacterModal from '../../Character/components/CharacterModal'
-import ComicDetails from '../../Details/Comics/components/ComicDetails'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useStateValue } from '../../../context';
+import EmptyResults from '../EmptyResults';
+import CharacterCard from '../../Character/components/CharacterCard';
+import CharacterModal from '../../Character/components/CharacterModal';
+import ComicDetails from '../../Details/Comics/components/ComicDetails';
 import {
   MainGrid,
   MainGridItem,
@@ -11,24 +12,24 @@ import {
   CardInfo,
   CardName,
   /* SectionTitle, */
-  Overlayer
-} from '../../../styles'
+  Overlayer,
+} from '../../../styles';
 
 const SearchResults = () => {
 
-  const [state] = useStateValue()
-  const [isOpen, setIsOpen] = useState(false)
-  const [isFade, setIsFade] = useState(false)
-  const [characterData, setCharacterData] = useState()
+  const [state] = useStateValue();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isFade, setIsFade] = useState(false);
+  const [characterData, setCharacterData] = useState();
 
   const handleToggleModal = () => {
-    setIsFade(!isFade)
-    setIsOpen(!isOpen)
+    setIsFade(!isFade);
+    setIsOpen(!isOpen);
   }
 
   return (
     <>
-      {state.characters &&
+      {state.characters && state.characters.length > 0 ?
         <>
           {/* <SectionTitle>Characters</SectionTitle> */}
           <MainGrid>
@@ -43,7 +44,11 @@ const SearchResults = () => {
             ))}
           </MainGrid>
         </>
-      }
+      : (
+        <MainGrid>
+          <EmptyResults />
+        </MainGrid>
+      )}
       {state.comics &&
         <>
           {/* <SectionTitle>Comics</SectionTitle> */}
@@ -83,6 +88,6 @@ const SearchResults = () => {
       />
     </>
   );
-}
+};
 
-export default SearchResults
+export default SearchResults;

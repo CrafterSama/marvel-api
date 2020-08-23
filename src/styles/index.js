@@ -3,8 +3,6 @@ import styled, { keyframes, createGlobalStyle } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-
   html {
     background-color: ${({ darkmode }) =>
       darkmode === 'on' ? '#444' : '#f0f0f0'};
@@ -33,6 +31,11 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
     outline: none;
   }
+`;
+
+// ErrorBox
+export const ErrorBox = styled.h2`
+  padding: 15px;
 `;
 
 // Layout Styles
