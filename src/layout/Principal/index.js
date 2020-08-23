@@ -23,8 +23,8 @@ const Layout = () => {
 
   useEffect(() => {
     darkModeOn();
-    return () => {}
-  });
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <MainLayout darkmode={state.darkMode}>
