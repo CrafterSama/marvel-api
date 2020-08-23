@@ -26,8 +26,6 @@ const SearchResults = () => {
     setIsOpen(!isOpen)
   }
 
-  console.log(state)
-
   return (
     <>
       {state.characters &&

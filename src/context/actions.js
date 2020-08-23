@@ -129,7 +129,6 @@ export const getComicByURL = async (searchParams, dispatch) => {
   });
 
   resetStore(dispatch)
-  console.log(searchParams);
 
   let characters;
   const stepOne = `characters?name=${searchParams.character}`;
