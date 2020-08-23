@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { SearchInputContainer, StyledForm, StyledInput, IconImage } from '../../../../styles'
 import { useStateValue } from '../../../../context'
@@ -7,8 +7,8 @@ import { getCharacters, getComics, getComicByURL, getComicById, getCharactersRan
 
 const SearchInput = () => {
 
+  let history = useHistory();
   const location = useLocation();
-  const { id } = useParams();
   const [search, setSearch] = useState();
   const [state, dispatch] = useStateValue();
 
@@ -22,6 +22,7 @@ const SearchInput = () => {
   };
 
   const marvelData = () => {
+    history.push('/');
     if(!search && !location.search) {
       getCharactersRandomly(dispatch);
     }
@@ -50,22 +51,18 @@ const SearchInput = () => {
   }, [])
 
   return (
-    <>
-      {!id &&
-        <SearchInputContainer>
-          <StyledForm onSubmit={onSubmit}>
-            <IconImage icon={faSearch} darkmode={state.darkMode} />
-            <StyledInput
-              name='search'
-              type='text'
-              placeholder="Search"
-              onChange={onChange}
-              darkmode={state.darkMode}
-            />
-          </StyledForm>
-        </SearchInputContainer>
-      }
-    </>
+    <SearchInputContainer>
+      <StyledForm onSubmit={onSubmit}>
+        <IconImage icon={faSearch} darkmode={state.darkMode} />
+        <StyledInput
+          name='search'
+          type='text'
+          placeholder="Search"
+          onChange={onChange}
+          darkmode={state.darkMode}
+        />
+      </StyledForm>
+    </SearchInputContainer>
   );
 }
 

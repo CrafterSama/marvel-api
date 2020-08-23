@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <FooterContainer darkmode={state.darkMode}>
       <p>
-        Made by <a href="htttps://craftersama.com" target="_blanc">Julmer Olivero</a>
+        Made by <a href="https://craftersama.com" target="_blanc">Julmer Olivero</a>
       </p>
     </FooterContainer>
   );

@@ -31,7 +31,6 @@ const Layout = (props) => {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route
-            exact
             path='/comics/:id'
             component={Details}
           />
