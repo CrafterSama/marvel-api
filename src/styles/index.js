@@ -36,6 +36,7 @@ export const GlobalStyle = createGlobalStyle`
 // ErrorBox
 export const ErrorBox = styled.h2`
   padding: 15px;
+  text-align: center;
 `;
 
 // Layout Styles
