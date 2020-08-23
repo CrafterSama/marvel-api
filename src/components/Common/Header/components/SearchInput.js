@@ -22,24 +22,29 @@ const SearchInput = () => {
   };
 
   const marvelData = () => {
-    history.push('/');
     if(!search && !location.search) {
+      history.push('/');
       getCharactersRandomly(dispatch);
     }
     if (!search && location.search) {
+      console.log(window.location.hash);
       const urlParams = new URLSearchParams(location.search);
+      const character = urlParams.get('character');
+      const comic = urlParams.get('comic') && urlParams.get('comic').trim();
       const browser = {
-        character: urlParams.get('character'),
-        comic: urlParams.get('comic').trim(),
+        character: character,
+        comic: comic,
         hash: window.location.hash,
       };
       getComicByURL(browser, dispatch);
     }
     if (search && search.includes('www.marvel.com')) {
+      history.push('/');
       const searchArray = search.split('/');
       getComicById(searchArray[5], dispatch);
     }
     if (search && !search.includes('www.marvel.com')) {
+      history.push('/');
       getCharacters(search, dispatch);
       getComics(search, dispatch);
     }
