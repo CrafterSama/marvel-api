@@ -19,22 +19,15 @@ export const AUTH_HEADERS = {
 };
 
 export const CHARACTERS_PARAMS = 'characters?nameStartsWith=';
+
 export const COMICS_PARAMS = 'comics?title=';
 
-
-export const CHARACTER_ARRAY = [
-	'Hulk',
-	'Spider-man',
-	'Thor',
-	'Captain America',
-	'Iron Man',
-	'Black Widow',
-	'Thanos',
-	'Hawkeye',
-	'Black Cat',
-	'Galactus',
-	'Captain Marvel',
-	'Doctor Strange',
-]
-
 export const NO_DESCRIPTION = 'No Description';
+
+export const THEME_LIGHT = 'light';
+
+export const THEME_DARK = 'dark';
+
+export const LOCALSTORAGE_FAVORITES = 'favorites';
+
+export const LOCALSTORAGE_THEME = 'theme';

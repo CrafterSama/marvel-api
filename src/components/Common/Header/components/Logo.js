@@ -7,7 +7,7 @@ import { getCharactersRandomly } from '../../../../context/actions'
 
 const Logo = () => {
 
-  const [state, dispatch] = useStateValue()
+  const [, dispatch] = useStateValue()
 
   const toHome = () => {
     getCharactersRandomly(dispatch);
@@ -16,7 +16,7 @@ const Logo = () => {
 
   return (
     <LogoContainer>
-      <ImageContainer darkmode={state.darkMode}>
+      <ImageContainer>
         <Link to='/' onClick={toHome}>
           <img src={logo} alt='Marvel Logo' />
         </Link>

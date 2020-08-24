@@ -3,19 +3,16 @@ import { HeaderContainer } from '../../../styles'
 import Logo from './components/Logo'
 import SearchInput from './components/SearchInput'
 import Favorite from './components/Favorite'
-import DarkMode from './components/DarkMode'
-import { useStateValue } from '../../../context'
+import ChangeTheme from './components/ChangeTheme'
 
 const Header = () => {
 
-  const [state] = useStateValue()
-
   return (
-    <HeaderContainer darkmode={state.darkMode}>
+    <HeaderContainer>
       <Logo />
       <SearchInput />
       <Favorite />
-      <DarkMode />
+      <ChangeTheme />
     </HeaderContainer>
   )
 }

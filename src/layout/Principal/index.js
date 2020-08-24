@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { SpinnerCircularFixed } from 'spinners-react';
 import Header from '../../components/Common/Header';

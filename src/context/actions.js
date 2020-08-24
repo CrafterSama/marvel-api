@@ -5,7 +5,7 @@ import {
   SET_COMIC,
   ON_LOADING,
   ON_LOADING_MODAL,
-  SET_DARK_MODE,
+  CHANGE_THEME,
 } from '../context/types';
 import { buildApiCall, fetchFunction, resetStore } from '../utils';
 import marvel from 'marvel-characters';
@@ -103,7 +103,6 @@ export const getComics = async (searchParams, dispatch) => {
   let comics;
   try {
     const response = await fetchFunction(buildApiCall(endpoint));
-    console.log(response.data)
     if (response.data.code === 200) {
       comics = response.data.data.results;
     } else {
@@ -201,9 +200,9 @@ export const getComicById = async (searchParams, dispatch) => {
   });
 };
 
-export const activeDarkMode = (active, dispatch) => {
+export const changeTheme = (theme, dispatch) => {
   dispatch({
-    type: SET_DARK_MODE,
-    darkMode: active,
+    type: CHANGE_THEME,
+    theme: theme,
   });
 };
