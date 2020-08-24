@@ -383,25 +383,33 @@ export const ComicDetail = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  @media(min-width: 600px) {
+  @media(min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
 
+export const BoxCover = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const ComicImageBox = styled.div`
-  min-width: 250px;
-  max-width: 350px;
-  max-height: 550px;
+${({ background }) => background && `
+    background-image: url(${background.path}.${background.extension});
+  `}
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
+  height: 100%;
+  min-width: 300px;
+  max-width: 450px;
+  min-height: 450px;
+  max-height: 680px;
   border-radius: 3px;
   box-shadow: 0 0 2px #999;
-  overflow: hidden;
-  > img {
-    min-width: 250px;
-    max-width: 350px;
-    max-height: 550px;
-    object-fit: cover;
-    object-position: center;
+  @media (min-width: 480px) {
+    min-height: 680px;
   }
 `;
 

@@ -6,6 +6,7 @@ import {
 } from '../../../../constants';
 import {
   ComicDetail,
+  BoxCover,
   ComicImageBox,
   ComicInfo,
   ComicCreators,
@@ -42,12 +43,9 @@ const ComicDetails = ({ data }) => {
 
   return (
     <ComicDetail>
-      <ComicImageBox>
-        <img
-          src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
-          alt={data.title}
-        />
-      </ComicImageBox>
+      <BoxCover>
+        <ComicImageBox background={data.thumbnail} />
+      </BoxCover>
       <ComicInfo>
         <h2>{data.title}</h2>
         <ComicCreators>
