@@ -11,7 +11,7 @@ import {
   Card,
   CardInfo,
   CardName,
-  /* SectionTitle, */
+  SectionTitle,
   Overlayer,
 } from '../../../styles';
 
@@ -51,7 +51,7 @@ const SearchResults = () => {
       )}
       {state.comics &&
         <>
-          {/* <SectionTitle>Comics</SectionTitle> */}
+          <SectionTitle>Comics</SectionTitle>
           <MainGrid>
             {state.comics.map((item, key) => (
               <MainGridItem key={key}>

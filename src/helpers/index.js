@@ -7,3 +7,14 @@ export const fixedEncodeURIComponent = (str) => {
     return '%' + c.charCodeAt(0).toString(16);
   });
 };
+
+export const listFromCreators = (array, search) => {
+  const list = array
+    .filter((x) => x.role.includes(search))
+    .map((x) => {
+      return x.name;
+    })
+    .join(', ');
+
+  return list;
+};
