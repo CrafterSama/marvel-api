@@ -4,13 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const GlobalStyle = createGlobalStyle`
   html {
-    background-color: ${({ darkmode }) =>
-      darkmode === 'on' ? '#444' : '#f0f0f0'};
+    background-color: ${(props) => props.theme.backgroundBody};
   }
 
   body {
-    background-color: ${({ darkmode }) =>
-      darkmode === 'on' ? '#444' : '#f0f0f0'};
+    background-color: ${(props) => props.theme.backgroundBody};
     height: 100vh;
     margin: 0;
     max-width: 100vw;
@@ -41,15 +39,14 @@ export const ErrorBox = styled.h2`
 
 // Layout Styles
 export const MainLayout = styled.div`
-  color: ${({ darkmode }) => (darkmode === 'on' ? '#fff' : '#555')};
-  background-color: ${({ darkmode }) =>
-    darkmode === 'on' ? '#444' : ';#f0f0f0'};
+  color: ${props => props.theme.textHeader};
+  background-color: ${props => props.theme.backgroundBody};
 `;
 // /endLayout Styles
 
 // Header
 export const HeaderContainer = styled.nav`
-  background-color: ${({ darkmode }) => darkmode === 'on' ? '#333' : '#fff' };
+  background-color: ${props => props.theme.backgroundHeader};;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 5px;
   display: flex;
   align-items: flex-start;
@@ -67,7 +64,7 @@ export const LogoContainer = styled.div`
 
 export const ImageContainer = styled.div`
   padding: 0 15px;
-  border-right: 2px solid ${({ darkmode }) => darkmode === 'on' ? '#999' : '#f1f1f1' };
+  border-right: 2px solid ${props => props.theme.border};
   display: flex;
   justify-content: center;
   align-content: center;
@@ -92,10 +89,8 @@ export const StyledInput = styled.input`
   padding: 6px;
   border: medium none;
   width: 100%;
-  color: ${({ darkmode }) =>
-    darkmode === 'on' ? '#fff' : '#333'};
-  background-color: ${({ darkmode }) =>
-    darkmode === 'on' ? '#333' : '#fff'};
+  color: ${props => props.theme.textHeader};
+  background-color: ${props => props.theme.backgroundHeader};
   font-size: 18px;
 `;
 
@@ -111,7 +106,7 @@ export const ImageBox = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 15px;
-  border-left: 2px solid ${({ darkmode }) => darkmode === 'on' ? '#999' : '#f1f1f1'};
+  border-left: 2px solid ${props => props.theme.border};
 `;
 
 export const IconImage = styled(FontAwesomeIcon)`
@@ -126,14 +121,12 @@ export const IconImage = styled(FontAwesomeIcon)`
 `;
 
 export const IconImageMoon = styled(FontAwesomeIcon)`
-  display: ${({ darkmode }) => darkmode === 'on' ? 'none' : 'flex' };
   font-size: 22px;
   color: #555;
   cursor: pointer;
 `;
 
 export const IconImageSun = styled(FontAwesomeIcon)`
-  display: ${({ darkmode }) => darkmode === 'on' ? 'flex' : 'none' };
   font-size: 22px;
   color: #eabe3a;
   cursor: pointer;
@@ -156,7 +149,7 @@ export const Container = styled.section`
 // Home
 
 export const SectionTitle = styled.h3`
-  background: #ec1d24;
+  background: ${(props) => props.theme.link};
   color: #fff;
   padding: 10px;
   border-left: 7px solid #ccc;
@@ -377,9 +370,9 @@ export const ComicImage = styled.div`
 export const ComicTitle = styled.div`
   a, a:hover, a:visited, a:focus {
     font-weight: 500;
-    color: rgb(236, 29, 36);
+    color: ${(props) => props.theme.link};
     text-decoration: none;
-    border-bottom: 1px solid rgb(236, 29, 36);
+    border-bottom: 1px solid ${(props) => props.theme.link};
   }
   p {
     font-size: 12px;
@@ -442,14 +435,14 @@ export const TextStrong = styled.div`
 
 // Footer
 export const FooterContainer = styled.div`
-  background-color: ${({ darkmode }) => darkmode === 'on' ? '#333' : '#fff' };
+  background-color: ${props => props.theme.backgroundHeader};
   padding: 5px;
   display: flex;
   align-content: center;
   justify-content: center;
-  border-top: 1px solid ${({ darkmode }) => darkmode === 'on' ? '#999' : '#ccc' };
+  border-top: 1px solid ${props => props.theme.border};
   & a, a:hover, a:focus, a:visited {
-    color: #ec1d24;
+    color: ${props => props.theme.link};
   }
 `;
 // /endFooter

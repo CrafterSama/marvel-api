@@ -1,10 +1,11 @@
+import { THEME_LIGHT, LOCALSTORAGE_THEME } from "../constants";
 
-let darkMode = '';
+let theme = THEME_LIGHT;
 
-let darkModeOn = localStorage.getItem('darkmode');
+let themeLocal = localStorage.getItem(LOCALSTORAGE_THEME);
 
-if (darkModeOn === 'on') {
-  darkMode = darkModeOn;
+if (themeLocal) {
+  theme = themeLocal;
 }
 
 export const initialState = {
@@ -15,5 +16,5 @@ export const initialState = {
     favorites: '',
     loading: false,
     loadingModal: false,
-    darkMode,
+    theme,
 }

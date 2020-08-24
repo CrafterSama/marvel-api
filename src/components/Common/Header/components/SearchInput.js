@@ -10,7 +10,7 @@ const SearchInput = () => {
   let history = useHistory();
   const location = useLocation();
   const [search, setSearch] = useState();
-  const [state, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const onChange = (e) => {
     setSearch(e.target.value);
@@ -58,13 +58,12 @@ const SearchInput = () => {
   return (
     <SearchInputContainer>
       <StyledForm onSubmit={onSubmit}>
-        <IconImage icon={faSearch} darkmode={state.darkMode} />
+        <IconImage icon={faSearch} />
         <StyledInput
           name='search'
           type='text'
           placeholder="Search"
           onChange={onChange}
-          darkmode={state.darkMode}
         />
       </StyledForm>
     </SearchInputContainer>

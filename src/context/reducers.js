@@ -4,7 +4,7 @@ import {
   SET_COMICS,
   SET_COMIC,
   SET_FAVORITES,
-  SET_DARK_MODE,
+  CHANGE_THEME,
   ON_LOADING,
   ON_LOADING_MODAL
  } from './types';
@@ -36,10 +36,10 @@ export const reducer = (state, action) => {
         ...state,
         favorites: action.favorites
       };
-    case SET_DARK_MODE:
+    case CHANGE_THEME:
       return {
         ...state,
-        darkMode: action.darkMode
+        theme: action.theme
       }
     case ON_LOADING:
       return {
