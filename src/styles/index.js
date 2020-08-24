@@ -172,9 +172,8 @@ export const MainGrid = styled.div`
 `;
 
 export const MainGridItem = styled.div`
-  min-height: 350px;
-  min-width: 200px;
-  max-width: 220px;
+  min-height: 450px;
+  min-width: 250px;
   -webkit-box-flex: 1;
   flex: 1 0 30%;
   margin: 10px;
@@ -418,14 +417,6 @@ export const ComicCreators = styled.div`
 
 export const DetailsItem = styled.div`
   margin: 10px 0;
-  > span {
-    &:after {
-      content: ', ';
-    }
-    &:last-child {
-      content: '';
-    }
-  }
 `;
 
 export const TextStrong = styled.div`

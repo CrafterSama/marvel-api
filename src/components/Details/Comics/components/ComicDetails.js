@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment'
 import {
   NO_DESCRIPTION,
 } from '../../../../constants';
-
 import {
   ComicDetail,
   ComicImageBox,
@@ -12,130 +12,122 @@ import {
   DetailsItem,
   TextStrong,
 } from '../../../../styles';
+import { listFromCreators } from '../../../../helpers';
 
 const ComicDetails = ({ data }) => {
 
-  const publicDate = data && data.dates.filter((o) => o.type === 'onsaleDate')
+  let publicDate;
+  let creators;
+  let writers;
+  let colorists;
+  let editors;
+  let artists;
+  let pencilers;
+  let inkers;
+  let letterers;
+  let covers;
 
-  const creators = data && data.creators.items;
-  const writers = data && creators.filter(c => c.role === 'writer');
-  const colorists = data && creators.filter(c => c.role === 'colorist');
-  const editors = data && creators.filter(c => c.role === 'editor');
-  const artists = data && creators.filter(c => c.role === 'artist');
-  const pencilers = data && creators.filter(c => c.role === 'penciler');
-  const inkers = data && creators.filter(c => c.role === 'inker');
-  const letterers = data && creators.filter(c => c.role === 'letterer');
-  const covers = data && creators.filter(c => {
-    return (c.role === 'penciler (cover)' || c.role === 'colorist (cover)')
-    });
+  if (data) {
+    creators = data.creators.items;
+    publicDate = data.dates.filter((date) => date.type === 'onsaleDate')
+    writers = listFromCreators(creators, 'writer');
+    colorists = listFromCreators(creators, 'colorist');
+    editors = listFromCreators(creators, 'editor');
+    artists = listFromCreators(creators, 'artist');
+    pencilers = listFromCreators(creators, 'penciler');
+    inkers = listFromCreators(creators, 'inker');
+    letterers = listFromCreators(creators, 'letterer');
+    covers = listFromCreators(creators, 'cover');
+  }
 
   return (
     <ComicDetail>
       <ComicImageBox>
         <img
-          src={`${data && data.thumbnail.path}.${data && data.thumbnail.extension}`}
-          alt={data && data.title}
+          src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
+          alt={data.title}
         />
       </ComicImageBox>
       <ComicInfo>
-        <h2>{data && data.title}</h2>
+        <h2>{data.title}</h2>
         <ComicCreators>
           <DetailsItem>
             <TextStrong>Public Time: </TextStrong>
-            {data && publicDate.map((d, key) => (
-              <span key={key}>{d.date}</span>
+            {publicDate.map((d, key) => (
+              <span key={key}>{moment(d.date).format('LL')}</span>
             ))}
           </DetailsItem>
-          {data && data.creators && (
+          {data.creators && (
             <>
-              {writers &&
+              {writers && (
                 <DetailsItem>
                   <>
                     <TextStrong>Writers: </TextStrong>
-                  {data && writers.map((w, key) => (
-                      <span key={key}>{w.name}</span>
-                    ))}
+                    <span>{writers}</span>
                   </>
                 </DetailsItem>
-              }
-              {pencilers &&
+              )}
+              {pencilers && (
                 <DetailsItem>
                   <>
                     <TextStrong>Pencilers: </TextStrong>
-                  {data && pencilers.map((w, key) => (
-                      <span key={key}>{w.name}</span>
-                    ))}
+                    <span>{pencilers}</span>
                   </>
                 </DetailsItem>
-              }
-              {artists &&
+              )}
+              {artists && (
                 <DetailsItem>
                   <>
                     <TextStrong>Artists: </TextStrong>
-                  {data && artists.map((w, key) => (
-                      <span key={key}>{w.name}</span>
-                    ))}
+                    <span>{artists}</span>
                   </>
                 </DetailsItem>
-              }
-              {colorists &&
+              )}
+              {colorists && (
                 <DetailsItem>
                   <>
                     <TextStrong>Colorists: </TextStrong>
-                  {data && colorists.map((w, key) => (
-                      <span key={key}>{w.name}</span>
-                    ))}
+                    <span>{colorists}</span>
                   </>
                 </DetailsItem>
-              }
-              {editors &&
+              )}
+              {editors && (
                 <DetailsItem>
                   <>
                     <TextStrong>Editors: </TextStrong>
-                  {data && editors.map((w, key) => (
-                      <span key={key}>{w.name}</span>
-                    ))}
+                    <span>{editors}</span>
                   </>
                 </DetailsItem>
-              }
-              {inkers &&
+              )}
+              {inkers && (
                 <DetailsItem>
                   <>
                     <TextStrong>Inkers: </TextStrong>
-                  {data && inkers.map((w, key) => (
-                      <span key={key}>{w.name}</span>
-                    ))}
+                    <span>{inkers}</span>
                   </>
                 </DetailsItem>
-              }
-              {letterers &&
+              )}
+              {letterers && (
                 <DetailsItem>
                   <>
                     <TextStrong>Letterers: </TextStrong>
-                  {data && letterers.map((w, key) => (
-                      <span key={key}>{w.name}</span>
-                    ))}
+                    <span>{letterers}</span>
                   </>
                 </DetailsItem>
-              }
-              {covers &&
+              )}
+              {covers && (
                 <DetailsItem>
                   <>
                     <TextStrong>Cover Artists: </TextStrong>
-                  {data && covers.map((w, key) => (
-                      <span key={key}>{w.name}</span>
-                    ))}
+                    <span>{covers}</span>
                   </>
                 </DetailsItem>
-              }
+              )}
             </>
           )}
         </ComicCreators>
         <DetailsItem>
-          {data && data.description
-            ? data.description
-            : NO_DESCRIPTION
-          }
+          {data.description ? data.description : NO_DESCRIPTION}
         </DetailsItem>
       </ComicInfo>
     </ComicDetail>
